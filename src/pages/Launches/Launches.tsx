@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import useDebounce from '../../hooks/useDebounce'
 import useLaunches from '../../hooks/useLaunches'
 import styles from './Launches.module.css'
+import LaunchesChart from '../../components/LaunchesChart/LaunchesChart'
 
 type Filter = 'all' | 'success' | 'failed' | 'upcoming'
 
@@ -56,6 +57,10 @@ export default function Launches() {
       {isLoading && <div className={styles.spinner} />}
 
       {isError && <p>Failed to load launches. Please try again.</p>}
+
+      {!isLoading && data && (
+        <LaunchesChart launches={data.docs} />
+        )}
 
       {!isLoading && !isError && (
         <div className={styles.grid}>

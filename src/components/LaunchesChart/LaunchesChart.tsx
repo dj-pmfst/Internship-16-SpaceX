@@ -1,0 +1,29 @@
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
+import { Launch } from '../../types'
+
+interface Props {
+  launches: Launch[]
+}
+
+export default function LaunchesChart({ launches }: Props) {
+  const data = launches.reduce((acc: Record<string, number>, launch) => {
+    const year = new Date(launch.date_utc).getFullYear().toString()
+    acc[year] = (acc[year] || 0) + 1
+    return acc
+  }, {})
+
+  const chartData = Object.entries(data)
+    .map(([year, count]) => ({ year, count }))
+    .sort((a, b) => Number(a.year) - Number(b.year))
+
+  return (
+    <ResponsiveContainer width="100%" height={300}>
+      <BarChart data={chartData}>
+        <XAxis dataKey="year" />
+        <YAxis />
+        <Tooltip />
+        <Bar dataKey="count" fill="#005288" />
+      </BarChart>
+    </ResponsiveContainer>
+  )
+}
