@@ -17,9 +17,25 @@ export default function Ships() {
     setSearchParams(params)
   }, [debouncedSearch])
 
+  const {
+    data,
+    isLoading,
+    isError,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage
+  } = useInfiniteShips(debouncedSearch)
+
+  const allShips = data?.pages.flatMap(page => page.docs) ?? []
 
   return (
     <div className={styles.container}>
+      <input
+        value={search}
+        onChange={e => setSearch(e.target.value)}
+        placeholder="Search ships..."
+        className={styles.search}
+      />
     </div>
   )
 }
