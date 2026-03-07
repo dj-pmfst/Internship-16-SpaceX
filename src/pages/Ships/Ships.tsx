@@ -30,12 +30,6 @@ export default function Ships() {
 
   return (
     <div className={styles.container}>
-      <input
-        value={search}
-        onChange={e => setSearch(e.target.value)}
-        placeholder="Search ships..."
-        className={styles.search}
-      />
     </div>
   )
 }
