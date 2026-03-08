@@ -43,6 +43,7 @@ function Ships() {
 
   return (
     <div className={styles.container}>
+      <h1 className={styles.title}>Ships</h1>
       <input
         value={search}
         onChange={e => setSearch(e.target.value)}

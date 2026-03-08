@@ -48,7 +48,8 @@ nav{
     z-index: 1;
     padding-top: 60px;  
     background: rgba(0, 0, 0, 0.5);
-    overflow-y: auto;
+    overflow-y: visible; 
+    height: auto; 
 }
 
 .themeIcon {
@@ -68,7 +69,6 @@ nav{
     display: block;
     filter: invert(1) brightness(2);
 }
-
 
 .themeIconDark {
     filter: invert(0);
