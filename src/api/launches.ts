@@ -47,3 +47,20 @@ export const getLaunchById = async (id: string): Promise<Launch> => {
   if (!res.ok) throw new Error('Failed to fetch launch')
   return res.json()
 }
+
+export const getAllLaunches = async (): Promise<Launch[]> => {
+  const res = await fetch(`${BASE_URL}/launches/query`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      query: {},
+      options: {
+        limit: 200, 
+        select: ['date_utc', 'success', 'upcoming'] 
+      },
+    }),
+  })
+  if (!res.ok) throw new Error('Failed to fetch all launches')
+  const data = await res.json()
+  return data.docs
+}

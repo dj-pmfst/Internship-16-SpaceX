@@ -1,0 +1,206 @@
+.container {
+    min-height: 100vh;
+    padding: 120px 40px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    color: white;
+}
+
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.search {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1rem;
+    padding: 10px 0;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: inherit;
+    letter-spacing: 0.05em;
+}
+
+.search::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+}
+
+.search:focus {
+    border-bottom-color: white;
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 6px 20px;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.filter:hover {
+    border-color: white;
+    color: white;
+}
+
+.activeFilter {
+    background: white;
+    border: 1px solid white;
+    color: black;
+    padding: 6px 20px;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 28px 32px;
+    background: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    transition: background 0.2s;
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.patch {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.patchPlaceholder {
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.cardInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cardName {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: white;
+}
+
+.cardDate {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.1em;
+}
+
+.cardStatus {
+    margin-left: auto;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border: 1px solid;
+    flex-shrink: 0;
+}
+
+.success {
+    color: #4caf50;
+    border-color: #4caf50;
+}
+
+.failed {
+    color: #f44336;
+    border-color: #f44336;
+}
+
+.upcoming {
+    color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.pageButton {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 10px 28px;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.pageButton:hover:not(:disabled) {
+    background: white;
+    color: black;
+}
+
+.pageButton:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+.pageInfo {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}

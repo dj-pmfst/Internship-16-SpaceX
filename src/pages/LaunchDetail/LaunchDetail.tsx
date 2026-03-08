@@ -23,7 +23,7 @@ function LaunchDetail() {
         <p>Rocket: {rocket?.name ?? 'Unknown'}</p>
         <p>
           Status:{' '}
-          {launch.upcoming ? '🔜 Upcoming' : launch.success ? 'Success' : 'Failed'}
+          {launch.upcoming ? 'Upcoming' : launch.success ? 'Success' : 'Failed'}
         </p>
         {launch.details && <p>{launch.details}</p>}
         {launch.failures.length > 0 && (

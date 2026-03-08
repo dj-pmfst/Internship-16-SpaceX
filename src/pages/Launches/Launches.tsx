@@ -37,24 +37,28 @@ function Launches() {
 
   return (
     <div className={styles.container}>
-      <input
-        className={styles.search}
-        value={search}
-        onChange={e => setSearch(e.target.value)}
-        placeholder="Search missions..."
-      />
-      <div className={styles.filters}>
-        {(['all', 'success', 'failed', 'upcoming'] as Filter[]).map(f => (
-          <button
-            key={f}
-            className={filter === f ? styles.activeFilter : styles.filter}
-            onClick={() => setFilter(f)}
-          >
-            {f}
-          </button>
-        ))}
+      <h1 className={styles.title}>Launches</h1>
+  
+      <div className={styles.controls}>
+        <input
+          className={styles.search}
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          placeholder="Search missions..."
+        />
+        <div className={styles.filters}>
+          {(['all', 'success', 'failed', 'upcoming'] as Filter[]).map(f => (
+            <button
+              key={f}
+              className={filter === f ? styles.activeFilter : styles.filter}
+              onClick={() => setFilter(f)}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
       </div>
-
+  
       <QueryWrapper isLoading={isLoading} isError={isError} errorMessage="Failed to load launches.">
         <LaunchesChart launches={data?.docs ?? []} />
   
@@ -65,25 +69,47 @@ function Launches() {
               className={styles.card}
               onClick={() => navigate(`/launches/${launch.id}`)}
             >
-              <img
-                src={launch.links.patch.small ?? undefined}
-                alt={launch.name}
-              />
-              <h3>{launch.name}</h3>
-              <p>{new Date(launch.date_utc).toLocaleDateString()}</p>
-              <span>
-                {launch.upcoming ? '🔜 Upcoming' : launch.success ? 'Success' : 'Failed'}
+              {launch.links.patch.small
+                ? <img src={launch.links.patch.small} alt={launch.name} className={styles.patch} />
+                : <div className={styles.patchPlaceholder} />
+              }
+              <div className={styles.cardInfo}>
+                <span className={styles.cardName}>{launch.name}</span>
+                <span className={styles.cardDate}>
+                  {new Date(launch.date_utc).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </span>
+              </div>
+              <span className={`${styles.cardStatus} ${
+                launch.upcoming ? styles.upcoming
+                : launch.success ? styles.success
+                : styles.failed
+              }`}>
+                {launch.upcoming ? 'Upcoming' : launch.success ? 'Success' : 'Failed'}
               </span>
             </div>
           ))}
         </div>
   
         <div className={styles.pagination}>
-          <button onClick={() => setPage(p => p - 1)} disabled={!data?.hasPrevPage}>
+          <button
+            className={styles.pageButton}
+            onClick={() => setPage(p => p - 1)}
+            disabled={!data?.hasPrevPage}
+          >
             Previous
           </button>
-          <span>Page {page} of {data?.totalPages}</span>
-          <button onClick={() => setPage(p => p + 1)} disabled={!data?.hasNextPage}>
+          <span className={styles.pageInfo}>
+            Page {page} of {data?.totalPages}
+          </span>
+          <button
+            className={styles.pageButton}
+            onClick={() => setPage(p => p + 1)}
+            disabled={!data?.hasNextPage}
+          >
             Next
           </button>
         </div>
