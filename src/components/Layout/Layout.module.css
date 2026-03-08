@@ -10,6 +10,12 @@ img{
     filter: invert(100%);
 }
 
+nav{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
 .header {
     display: flex;
     flex-direction: row;
@@ -22,6 +28,7 @@ img{
     z-index: 2;
     padding-left: 3rem;
     padding-right: 3rem;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.438); */
 }
 
   
@@ -40,4 +47,28 @@ img{
     z-index: 1;
     padding-top: 60px;  
     background: rgba(0, 0, 0, 0.5);
+}
+
+.themeIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+
+.themeToggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+.themeIcon {
+    width: 20px;
+    height: 20px;
+    display: block;
+    filter: invert(1) brightness(2);
+}
+
+
+.themeIconDark {
+    filter: invert(0);
 }

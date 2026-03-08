@@ -3,6 +3,7 @@ import { ReactNode } from 'react'
 import { useTheme } from '../../hooks/useTheme'
 import heroVideo from '../../assets/videos/mars.mp4'
 import styles from './Layout.module.css'
+import toggleIcon from '../../assets/icons/dark-theme.svg'
 
 interface Props {
   children: ReactNode
@@ -33,8 +34,11 @@ export function Layout({ children }: Props) {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/launches">Launches</NavLink>
           <NavLink to="/ships">Ships</NavLink>
-          <button onClick={toggleTheme}>
-            {theme === 'dark' ? 'Light' : 'Dark'}
+          <button onClick={toggleTheme} className={styles.themeToggle}>
+            <img 
+              src={toggleIcon}
+              className={`${styles.themeIcon} ${theme === 'dark' ? styles.light : styles.dark}`}
+            />
           </button>
         </nav>
       </header>

@@ -22,7 +22,7 @@ function Home() {
     <div className={styles.container}>
       <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1>SpaceX Mission Control</h1>
+          <h1>SpaceX Mission <br/> Control</h1>
         </div>
         <QueryWrapper isLoading={launchLoading} isError={false} errorMessage="Failed to load next launch.">
           {nextLaunch && (
