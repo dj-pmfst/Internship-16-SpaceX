@@ -1,8 +1,9 @@
 import { useParams, useNavigate } from "react-router-dom";
 import styles from './ShipDetail.module.css'
 import useShipDetail from "../../hooks/useShipDetail";
+import withErrorBoundary from "../../hoc/withErrorBoundary";
 
-export default function ShipDetail(){
+function ShipDetail(){
     const { id } = useParams<{ id: string }>()
     const navigate = useNavigate()
 
@@ -53,3 +54,5 @@ export default function ShipDetail(){
         </div>
     )
 }
+
+export default withErrorBoundary(ShipDetail)

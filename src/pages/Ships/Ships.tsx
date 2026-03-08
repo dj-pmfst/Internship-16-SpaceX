@@ -5,9 +5,10 @@ import useInfiniteShips from '../../hooks/useInfiniteShips'
 import styles from './Ships.module.css'
 import useIntersectionObserver from '../../hooks/useIntersectionObserver'
 import ShipCard from '../../components/ShipCard/ShipCard'
+import withErrorBoundary from '../../hoc/withErrorBoundary'
 
 
-export default function Ships() {
+function Ships() {
   const [searchParams, setSearchParams] = useSearchParams()
   const navigate = useNavigate()
 
@@ -64,3 +65,5 @@ export default function Ships() {
     </div>
   )
 }
+
+export default withErrorBoundary(Ships)

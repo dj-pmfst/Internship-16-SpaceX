@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { getCompanyInfo, getNextLaunch } from '../../api'
+import withErrorBoundary from '../../hoc/withErrorBoundary'
 import useCountdown from '../../hooks/useCountdown'
 import styles from './Home.module.css'
 
-export default function Home() {
+function Home() {
   const { data: company, isLoading: companyLoading } = useQuery({
     queryKey: ['company'],
     queryFn: getCompanyInfo,
@@ -50,3 +51,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default withErrorBoundary(Home)

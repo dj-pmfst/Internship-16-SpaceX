@@ -5,7 +5,7 @@ import Launches from './pages/Launches/Launches'
 import LaunchDetail from './pages/LaunchDetail/LaunchDetail'
 import Ships from './pages/Ships/Ships'
 import ShipDetail from './pages/ShipDetail/ShipDetail'
-import NotFound from './pages/NotFound/NotFound'
+import NotFound from './pages/Error/Error'
 
 function App() {
   return (

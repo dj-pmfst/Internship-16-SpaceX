@@ -1,8 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom'
+import withErrorBoundary from '../../hoc/withErrorBoundary'
 import useLaunchDetail from '../../hooks/useLaunchDetails'
 import styles from './LaunchDetail.module.css'
 
-export default function LaunchDetail() {
+function LaunchDetail() {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
 
@@ -49,3 +50,5 @@ export default function LaunchDetail() {
         </div>
       )
 }
+
+export default withErrorBoundary(LaunchDetail)

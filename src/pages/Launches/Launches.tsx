@@ -4,10 +4,11 @@ import useDebounce from '../../hooks/useDebounce'
 import useLaunches from '../../hooks/useLaunches'
 import styles from './Launches.module.css'
 import LaunchesChart from '../../components/LaunchesChart/LaunchesChart'
+import withErrorBoundary from '../../hoc/withErrorBoundary'
 
 type Filter = 'all' | 'success' | 'failed' | 'upcoming'
 
-export default function Launches() {
+function Launches() {
   const [searchParams, setSearchParams] = useSearchParams()
   const navigate = useNavigate()
 
@@ -104,3 +105,5 @@ export default function Launches() {
     </div>
   )
 }
+
+export default withErrorBoundary(Launches)

@@ -1,7 +1,8 @@
 import styles from './error.module.css'
 import { Link } from "react-router-dom"
+import withErrorBoundary from '../../hoc/withErrorBoundary'
 
-export default function NotFound(){
+function NotFound(){
     return (
         <div className={styles.container}>
             <main className={styles.main}>
@@ -13,3 +14,5 @@ export default function NotFound(){
         </div>
     )
 }
+
+export default withErrorBoundary(NotFound)
