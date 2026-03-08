@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom'
 import { ReactNode } from 'react'
 import { useTheme } from '../../hooks/useTheme'
-import heroVideo from '../../assets/videos/mars.mp4'
+import videoDark from '../../assets/videos/mars.mp4'
+import imageLight from '../../assets/images/rocket.jpg'
 import styles from './Layout.module.css'
 import toggleIcon from '../../assets/icons/dark-theme.svg'
 
@@ -18,15 +19,25 @@ export function Layout({ children }: Props) {
 
   return (
     <div className={styles.container}>
-      <video
-        className={styles.video}
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-        <source src={heroVideo} type="video/mp4" />
-      </video>
+      {theme === 'dark' ? (
+        <video
+          key="dark"
+          className={styles.background}
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src={videoDark} type="video/mp4" />
+        </video>
+      ) : (
+        <img
+          key="light"
+          src={imageLight}
+          className={styles.background}
+          alt="background"
+        />
+      )}
 
       <header className={styles.header}>
         <img src="/src/assets/icons/SpaceX-Logo.svg" className={styles.logo} />

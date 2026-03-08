@@ -51,7 +51,7 @@ function ShipDetail() {
 
             {ship.link && (
               <a href={ship.link} target="_blank" rel="noreferrer">
-                <br/>View on Marine Traffic
+                View on Marine Traffic
               </a>
             )}
           </div>

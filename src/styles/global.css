@@ -1,6 +1,5 @@
 @import './fonts.css';
 @import './variables.css';
-@import './themes.css';
 @import './scrollbar.css';
 @import './links.css';
 
@@ -11,7 +10,9 @@
 }
 
 body {
-  font-family: var(--font-body);
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    transition: color 0.3s;
 }
 
 h1, h2, h3, h4, h5, h6 {
