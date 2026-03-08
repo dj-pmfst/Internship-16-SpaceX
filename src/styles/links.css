@@ -1,7 +1,7 @@
 a {
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
     padding: 10px 28px;
     font-size: 0.75rem;
     letter-spacing: 0.15em;
@@ -12,6 +12,6 @@ a {
 }
   
 a:hover {
-    background: white;
-    color: black;
+    background: var(--text-primary);
+    color: var(--card-bg);
 }

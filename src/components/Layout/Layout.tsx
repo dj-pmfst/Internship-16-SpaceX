@@ -41,7 +41,7 @@ export function Layout({ children }: Props) {
 
       <header className={styles.header}>
         <img src="/src/assets/icons/SpaceX-Logo.svg" className={styles.logo} />
-        <nav>
+        <nav className={styles.nav}>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/launches">Launches</NavLink>
           <NavLink to="/ships">Ships</NavLink>

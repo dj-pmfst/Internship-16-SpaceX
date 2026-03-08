@@ -10,15 +10,21 @@
     --hover-bg: rgba(255, 255, 255, 0.05);
     --nav-bg: rgba(0, 0, 0, 0.5);
     --overlay: rgba(0, 0, 0, 0.5);
+
+    --logo-filter: invert(100%);
+    --icon-filter: invert(100%);
 }
   
 html.light {
     --text-primary: #000000;
     --text-secondary: rgba(0, 0, 0, 0.6);
     --text-muted: rgba(0, 0, 0, 0.4);
-    --card-bg: rgba(255, 255, 255, 0.8);
+    --card-bg: rgba(255, 255, 255, 0.489);
     --border: rgba(0, 0, 0, 0.15);
     --hover-bg: rgba(0, 0, 0, 0.05);
-    --nav-bg: rgba(255, 255, 255, 0.5);
-    --overlay: rgba(255, 255, 255, 0.5);
+    --nav-bg: rgba(255, 255, 255, 0.266);
+    --overlay: rgba(255, 255, 255, 0.303);
+
+    --logo-filter: invert(0%);
+    --icon-filter: invert(0%);
 }

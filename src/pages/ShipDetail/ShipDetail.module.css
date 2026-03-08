@@ -11,8 +11,8 @@
   
 .back {
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
     padding: 8px 24px;
     font-size: 0.75rem;
     letter-spacing: 0.15em;
@@ -46,8 +46,8 @@
 }
   
 .back:hover {
-    background: white;
-    color: black;
+    background: var(--text-primary);
+    color: var(--card-bg);
 }
   
 .header {
@@ -68,12 +68,12 @@
 .noImage {
     width: 280px;
     height: 180px;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--hover-bg);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.3);
+    color: var(--text-muted);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     flex-shrink: 0;
@@ -90,7 +90,7 @@
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: white;
+    color: var(--text-primary);
 }
   
 .activeStatus {
@@ -107,13 +107,13 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     padding: 4px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.4);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
 }
   
 .divider {
     border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--border);
     margin: 32px 0;
 }
   
@@ -131,7 +131,7 @@
 }
   
 .metaLabel {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-size: 0.75rem;
@@ -140,7 +140,7 @@
 }
   
 .metaValue {
-    color: white;
+    color: var(--text-primary);
 }
   
 .roles {
@@ -155,8 +155,8 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     padding: 4px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
 }
 
 .about, h1, h2, p {

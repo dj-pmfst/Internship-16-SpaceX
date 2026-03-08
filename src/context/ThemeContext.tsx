@@ -26,19 +26,18 @@ const themeReducer = (state: State, action: Action): State => {
 export const ThemeContext = createContext<ThemeContextType | null>(null)
 
 export const ThemeProvider = ({children}: {children: React.ReactNode}) =>{
-    const savedTheme = (localStorage.getItem('theme') as Theme) || 'light'
+    const savedTheme = (localStorage.getItem('theme') as Theme) || 'dark'
     const [state, dispatch] = useReducer(themeReducer, {theme: savedTheme})
 
     useEffect(() => {
         const root = document.documentElement
-        if (state.theme == 'dark'){
-            root.classList.add('dark')
-        }   
-        else {
-            root.classList.remove('dark')
+        if (state.theme === 'light') {
+          root.classList.add('light')
+        } else {
+          root.classList.remove('light')
         }
         localStorage.setItem('theme', state.theme)
-    }, [state.theme])
+      }, [state.theme])
 
     return (
         <ThemeContext.Provider value={{ theme: state.theme, dispatch }}>
