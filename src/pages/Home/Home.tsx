@@ -24,20 +24,22 @@ function Home() {
         <div className={styles.heroContent}>
           <h1>SpaceX Mission Control</h1>
         </div>
-
-      <QueryWrapper isLoading={launchLoading} isError={false} errorMessage="Failed to load next launch.">
-        {nextLaunch && (
-          <section>
-            <h2>Next Launch: {nextLaunch.name}</h2>
-            <div className={styles.countdown}>
-              <div className={styles.countdownItem}>{days}d</div>
-              <div className={styles.countdownItem}>{hours}h</div>
-              <div className={styles.countdownItem}>{minutes}m</div>
-              <div className={styles.countdownItem}>{seconds}s</div>
-            </div>
-          </section>
-        )}
-      </QueryWrapper>
+        <QueryWrapper isLoading={launchLoading} isError={false} errorMessage="Failed to load next launch.">
+          {nextLaunch && (
+            <section>
+              <h2>
+                <span>Next Launch</span>
+                <span>{nextLaunch.name}</span>
+              </h2>
+              <div className={styles.countdown}>
+                <div className={styles.countdownItem}>{days}d</div>
+                <div className={styles.countdownItem}>{hours}h</div>
+                <div className={styles.countdownItem}>{minutes}m</div>
+                <div className={styles.countdownItem}>{seconds}s</div>
+              </div>
+            </section>
+          )}
+        </QueryWrapper>
       </section>
 
       <QueryWrapper isLoading={companyLoading} isError={false} errorMessage="Failed to load company info.">

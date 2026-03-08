@@ -1,25 +1,48 @@
 .container{
     display: flex;
-    margin: 0;
     overflow-y: hidden;
     flex-direction: column;
-    justify-content: center;
-    font-family: "Play", sans-serif;
+    gap: 5rem;
 }
 
-.hero{
+.hero {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 5rem;
+    padding-bottom: 0;
+}
+
+h2 span {
+    display: block;
+    text-align: right;
+}
+
+h2 span:last-child{
+    font-weight: 500;
 }
 
 .countdown{
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 1rem;
+    font-size: 20px;
 }
 
-h1, h2{
-    font-family: "Michroma", sans-serif;
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 20px;
+    padding: 10rem;
+    padding-top: 5rem;
 }
 
+p{
+    text-align: center;
+}

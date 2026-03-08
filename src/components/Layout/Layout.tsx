@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { ReactNode } from 'react'
 import { useTheme } from '../../hooks/useTheme'
+import heroVideo from '../../assets/videos/mars.mp4'
 import styles from './Layout.module.css'
 
 interface Props {
@@ -16,8 +17,18 @@ export function Layout({ children }: Props) {
 
   return (
     <div className={styles.container}>
-      <header>
-        <img src="/src/assets/icons/SpaceX-Logo.svg"/>
+      <video
+        className={styles.video}
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
+
+      <header className={styles.header}>
+        <img src="/src/assets/icons/SpaceX-Logo.svg" />
         <nav>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/launches">Launches</NavLink>
@@ -27,6 +38,7 @@ export function Layout({ children }: Props) {
           </button>
         </nav>
       </header>
+
       <main className={styles.main}>
         {children}
       </main>
