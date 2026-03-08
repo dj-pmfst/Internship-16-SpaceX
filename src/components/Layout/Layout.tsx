@@ -17,6 +17,7 @@ export function Layout({ children }: Props) {
   return (
     <div className={styles.container}>
       <header>
+        <img src="/src/assets/icons/SpaceX-Logo.svg"/>
         <nav>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/launches">Launches</NavLink>

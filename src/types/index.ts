@@ -135,5 +135,3 @@ export interface Rocket {
     description: string
     active: boolean
 }
-
-//mozda i ovo pocistit ??

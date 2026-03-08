@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'HeaderFont';
+    src: url('../assets/fonts/Michroma/Michroma-Regular.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'BodyFont';
+    src: url('../assets/fonts/Play/Play-Regular.ttf') format('truetype');
+  }

@@ -16,9 +16,7 @@ function Home() {
     queryFn: getNextLaunch,
   })
 
-  const { days, hours, minutes, seconds } = useCountdown(
-    nextLaunch?.date_utc ?? ''
-  )
+  const { days, hours, minutes, seconds } = useCountdown('2026-12-01T00:00:00.000Z')
 
   return (
     <div className={styles.container}>
@@ -26,7 +24,6 @@ function Home() {
         <div className={styles.heroContent}>
           <h1>SpaceX Mission Control</h1>
         </div>
-      </section>
 
       <QueryWrapper isLoading={launchLoading} isError={false} errorMessage="Failed to load next launch.">
         {nextLaunch && (
@@ -41,6 +38,7 @@ function Home() {
           </section>
         )}
       </QueryWrapper>
+      </section>
 
       <QueryWrapper isLoading={companyLoading} isError={false} errorMessage="Failed to load company info.">
         {company && (
