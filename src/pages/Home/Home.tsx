@@ -3,6 +3,7 @@ import { getCompanyInfo, getNextLaunch } from '../../api'
 import withErrorBoundary from '../../hoc/withErrorBoundary'
 import useCountdown from '../../hooks/useCountdown'
 import styles from './Home.module.css'
+import QueryWrapper from '../../components/QueryWrapper/QueryWrapper'
 
 function Home() {
   const { data: company, isLoading: companyLoading } = useQuery({
@@ -27,27 +28,30 @@ function Home() {
         </div>
       </section>
 
-      <section>
-        <h2>Next Launch: {nextLaunch?.name}</h2>
-        {launchLoading ? (
-          <div className={styles.spinner} />
-        ) : (
-          <div className={styles.countdown}>
-            <div className={styles.countdownItem}>{days}d</div>
-            <div className={styles.countdownItem}>{hours}h</div>
-            <div className={styles.countdownItem}>{minutes}m</div>
-            <div className={styles.countdownItem}>{seconds}s</div>
-          </div>
+      <QueryWrapper isLoading={launchLoading} isError={false} errorMessage="Failed to load next launch.">
+        {nextLaunch && (
+          <section>
+            <h2>Next Launch: {nextLaunch.name}</h2>
+            <div className={styles.countdown}>
+              <div className={styles.countdownItem}>{days}d</div>
+              <div className={styles.countdownItem}>{hours}h</div>
+              <div className={styles.countdownItem}>{minutes}m</div>
+              <div className={styles.countdownItem}>{seconds}s</div>
+            </div>
+          </section>
         )}
-      </section>
+      </QueryWrapper>
 
-      <section className={styles.about}>
-        {companyLoading ? (
-          <div className={styles.skeleton} />
-        ) : (
-          <p>{company?.summary}</p>
+      <QueryWrapper isLoading={companyLoading} isError={false} errorMessage="Failed to load company info.">
+        {company && (
+          <section className={styles.about}>
+            <h2>About SpaceX</h2>
+            <p>{company.summary}</p>
+            <p>Founded: {company.founded} by {company.founder}</p>
+            <p>Employees: {company.employees.toLocaleString()}</p>
+          </section>
         )}
-      </section>
+      </QueryWrapper>
     </div>
   )
 }

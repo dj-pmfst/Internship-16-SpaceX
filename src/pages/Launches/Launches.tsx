@@ -5,6 +5,7 @@ import useLaunches from '../../hooks/useLaunches'
 import styles from './Launches.module.css'
 import LaunchesChart from '../../components/LaunchesChart/LaunchesChart'
 import withErrorBoundary from '../../hoc/withErrorBoundary'
+import QueryWrapper from '../../components/QueryWrapper/QueryWrapper'
 
 type Filter = 'all' | 'success' | 'failed' | 'upcoming'
 
@@ -42,7 +43,6 @@ function Launches() {
         onChange={e => setSearch(e.target.value)}
         placeholder="Search missions..."
       />
-
       <div className={styles.filters}>
         {(['all', 'success', 'failed', 'upcoming'] as Filter[]).map(f => (
           <button
@@ -55,15 +55,9 @@ function Launches() {
         ))}
       </div>
 
-      {isLoading && <div className={styles.spinner} />}
-
-      {isError && <p>Failed to load launches. Please try again.</p>}
-
-      {!isLoading && data && (
-        <LaunchesChart launches={data.docs} />
-        )}
-
-      {!isLoading && !isError && (
+      <QueryWrapper isLoading={isLoading} isError={isError} errorMessage="Failed to load launches.">
+        <LaunchesChart launches={data?.docs ?? []} />
+  
         <div className={styles.grid}>
           {data?.docs.map(launch => (
             <div
@@ -72,7 +66,7 @@ function Launches() {
               onClick={() => navigate(`/launches/${launch.id}`)}
             >
               <img
-                // src={launch.links.patch.small ?? 'PRONAC SLIKU'} !!!!!!
+                src={launch.links.patch.small ?? undefined}
                 alt={launch.name}
               />
               <h3>{launch.name}</h3>
@@ -83,25 +77,17 @@ function Launches() {
             </div>
           ))}
         </div>
-      )}
-
-      {!isLoading && data && (
+  
         <div className={styles.pagination}>
-          <button
-            onClick={() => setPage(p => p - 1)}
-            disabled={!data.hasPrevPage}
-          >
+          <button onClick={() => setPage(p => p - 1)} disabled={!data?.hasPrevPage}>
             Previous
           </button>
-          <span>Page {page} of {data.totalPages}</span>
-          <button
-            onClick={() => setPage(p => p + 1)}
-            disabled={!data.hasNextPage}
-          >
+          <span>Page {page} of {data?.totalPages}</span>
+          <button onClick={() => setPage(p => p + 1)} disabled={!data?.hasNextPage}>
             Next
           </button>
         </div>
-      )}
+      </QueryWrapper>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import styles from './Ships.module.css'
 import useIntersectionObserver from '../../hooks/useIntersectionObserver'
 import ShipCard from '../../components/ShipCard/ShipCard'
 import withErrorBoundary from '../../hoc/withErrorBoundary'
+import QueryWrapper from '../../components/QueryWrapper/QueryWrapper'
 
 
 function Ships() {
@@ -48,20 +49,23 @@ function Ships() {
         placeholder="Search ships..."
         className={styles.search}
       />
-
-      {isLoading && <div className={styles.spinner} />}
-      {isError && <p>Failed to load ships.</p>}
-
-      {allShips.map(ship => (
-          <ShipCard
-            key={ship.id}
-            ship={ship}
-            onClick={() => navigate(`/ships/${ship.id}`)}
-          />
-        ))}
-
-      {isFetchingNextPage && <div className={styles.spinner} />}
-      {!hasNextPage && !isLoading && <p>No more ships to load.</p>}
+  
+      <QueryWrapper isLoading={isLoading} isError={isError} errorMessage="Failed to load ships.">
+        <div className={styles.grid}>
+          {allShips.map(ship => (
+            <ShipCard
+              key={ship.id}
+              ship={ship}
+              onClick={() => navigate(`/ships/${ship.id}`)}
+            />
+          ))}
+        </div>
+  
+        <div ref={sentinelRef} style={{ height: '1px' }} />
+  
+        {isFetchingNextPage && <div className={styles.spinner} />}
+        {!hasNextPage && !isLoading && <p>No more ships to load.</p>}
+      </QueryWrapper>
     </div>
   )
 }
