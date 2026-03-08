@@ -231,3 +231,42 @@
     color: var(--text-secondary);
     margin-bottom: 16px;
 }
+
+@media (max-width: 768px) {
+    .container {
+      padding: 100px 20px 40px;
+    }
+  
+    .card {
+      padding: 20px;
+      gap: 16px;
+    }
+  
+    .patch {
+      width: 48px;
+      height: 48px;
+    }
+  
+    .cardName {
+      font-size: 0.9rem;
+    }
+  
+    .pagination {
+      gap: 12px;
+    }
+  
+    .pageButton {
+      padding: 8px 16px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .content {
+      flex-direction: column;
+    }
+  
+    .chartPanel {
+      width: 100%;
+      position: static;
+    }
+}
