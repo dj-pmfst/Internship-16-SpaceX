@@ -6,12 +6,13 @@ import styles from './Launches.module.css'
 import LaunchesChart from '../../components/LaunchesChart/LaunchesChart'
 import withErrorBoundary from '../../hoc/withErrorBoundary'
 import QueryWrapper from '../../components/QueryWrapper/QueryWrapper'
-
-type Filter = 'all' | 'success' | 'failed' | 'upcoming'
+import useAllLaunches from '../../hooks/useAllLaunches'
+import { Filter, FILTER_OPTIONS } from '../../types'
 
 function Launches() {
   const [searchParams, setSearchParams] = useSearchParams()
   const navigate = useNavigate()
+  
 
   const [search, setSearch] = useState(searchParams.get('search') ?? '')
   const [filter, setFilter] = useState<Filter>(
@@ -20,7 +21,8 @@ function Launches() {
   const [page, setPage] = useState(
     Number(searchParams.get('page')) || 1
   )
-
+  
+  const { filteredData } = useAllLaunches(filter)
   const debouncedSearch = useDebounce(search, 500)
 
   useEffect(() => {
@@ -60,8 +62,7 @@ function Launches() {
       </div>
   
       <QueryWrapper isLoading={isLoading} isError={isError} errorMessage="Failed to load launches.">
-        <LaunchesChart launches={data?.docs ?? []} />
-  
+        <LaunchesChart launches={filteredData} />
         <div className={styles.grid}>
           {data?.docs.map(launch => (
             <div

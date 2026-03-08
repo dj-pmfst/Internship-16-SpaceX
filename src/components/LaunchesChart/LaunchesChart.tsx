@@ -22,7 +22,7 @@ export default function LaunchesChart({ launches }: Props) {
         <XAxis dataKey="year" />
         <YAxis />
         <Tooltip />
-        <Bar dataKey="count" fill="#005288" />
+        <Bar dataKey="count" fill="#4b4f52" />
       </BarChart>
     </ResponsiveContainer>
   )

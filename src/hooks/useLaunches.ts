@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { getLaunches } from '../api'
-
-type Filter = 'all' | 'success' | 'failed' | 'upcoming'
+import type { Filter } from '../types'
 
 const useLaunches = (page: number, search: string, filter: Filter) => {
   return useQuery({
