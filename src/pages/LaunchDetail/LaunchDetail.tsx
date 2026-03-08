@@ -15,10 +15,13 @@ function LaunchDetail() {
       {launch && (
       <div className={styles.container}>
         <button onClick={() => navigate(-1)}>← Back</button>
-        {launch.links.patch.large && (
-          <img src={launch.links.patch.large} alt={launch.name} className={styles.patch} />
-        )}
-        <h1>{launch.name}</h1>
+        <div className={styles.launch}>
+          {launch.links.patch.large && (
+            <img src={launch.links.patch.large} alt={launch.name} className={styles.patch} />
+          )}
+          <h1>{launch.name}</h1>
+        </div>
+
         <p>Date: {new Date(launch.date_utc).toLocaleDateString()}</p>
         <p>Rocket: {rocket?.name ?? 'Unknown'}</p>
         <p>
@@ -40,7 +43,7 @@ function LaunchDetail() {
         )}
         {launch.links.webcast && (
           <a href={launch.links.webcast} target="_blank" rel="noreferrer">
-            Watch on YouTube
+            <img src='/src/assets/icons/youtube.svg'/> <span>Watch on YouTube </span>
           </a>
         )}
       </div>

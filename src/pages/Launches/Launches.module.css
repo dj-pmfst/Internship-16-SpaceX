@@ -1,10 +1,8 @@
 .container {
-    min-height: 100vh;
     padding: 120px 40px 60px;
     max-width: 1200px;
     margin: 0 auto;
 }
-
 
 .title {
     font-size: 2.5rem;
@@ -14,7 +12,6 @@
     margin-bottom: 40px;
     color: white;
 }
-
 
 .controls {
     display: flex;

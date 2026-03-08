@@ -1,0 +1,177 @@
+.container {
+    min-height: 100vh;
+    padding: 120px 40px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+  
+.back {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px 24px;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    margin-bottom: 48px;
+    display: inline-block;
+}
+
+.launch{
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+  
+.back:hover {
+    background: white;
+    color: black;
+}
+  
+.header {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 48px;
+}
+  
+.patch {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+  
+.headerInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+  
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: white;
+}
+  
+.status {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border: 1px solid;
+}
+  
+.success {
+    color: #4caf50;
+    border-color: #4caf50;
+}
+  
+.failed {
+    color: #f44336;
+    border-color: #f44336;
+}
+  
+.upcoming {
+    color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+  
+.divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 32px 0;
+}
+  
+.meta {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+  
+.metaItem {
+    display: flex;
+    gap: 16px;
+    font-size: 0.9rem;
+}
+  
+.metaLabel {
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    min-width: 100px;
+    padding-top: 2px;
+}
+  
+.metaValue {
+    color: white;
+}
+  
+.details {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+}
+  
+.failures {
+    background: rgba(244, 67, 54, 0.1);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    padding: 24px;
+    margin-bottom: 32px;
+}
+  
+.failuresTitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #f44336;
+    margin-bottom: 16px;
+}
+  
+.failureItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+  
+.links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+  
+.link {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 10px 28px;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+}
+  
+.link:hover {
+    background: white;
+    color: black;
+}
+  
+a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

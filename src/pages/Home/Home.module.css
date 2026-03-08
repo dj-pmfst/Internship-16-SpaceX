@@ -1,8 +1,8 @@
 .container{
     display: flex;
-    overflow-y: hidden;
     flex-direction: column;
     gap: 5rem;
+    overflow: hidden;
 }
 
 .hero {
