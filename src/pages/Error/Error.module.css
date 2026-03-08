@@ -1,48 +1,61 @@
 .container {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.icon {
-    max-width: 100px;
-    height: auto;
-    filter: invert(90%);
-    margin-bottom: -5rem; 
-}
-
+    overflow: hidden;
+  }
+  
 .main {
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    margin-top: 10rem;
+    justify-content: space-around;
+    gap: 2rem;
+    width: 100%;
 }
-
+  
+.icon {
+    width: 100px;
+    height: auto;
+    opacity: 0.2;
+    filter: var(--icon-filter);
+}
+  
 .code {
     font-size: 8rem;
-    font-family: "Pacifico", cursive;
-    font-weight: 100;
-    max-height: 150px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--text-primary);
+    font-family: var(--font-header);
+    line-height: 1;
+    opacity: 0.15;
 }
-
+  
 .message {
-    font-size: 1.2rem;
-    color: #888;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-top: -16px;
 }
-
+  
 .homeButton {
-    margin-top: 1rem;
-    padding: 0.5rem 1.5rem;
-    border-radius: 8px;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 10px 32px;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
     text-decoration: none;
-    font-size: 14px;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s;
+    display: inline-block;
 }
-
+  
 .homeButton:hover {
-    transform: translateY(-5px) scale(1.02);
+    background: var(--text-primary);
+    color: var(--card-bg);
+}
+  
+@media (max-width: 768px) {
+    .code {
+      font-size: 5rem;
+    }
 }
