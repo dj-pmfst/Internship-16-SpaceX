@@ -4,6 +4,7 @@ import withErrorBoundary from '../../hoc/withErrorBoundary'
 import useCountdown from '../../hooks/useCountdown'
 import styles from './Home.module.css'
 import QueryWrapper from '../../components/QueryWrapper/QueryWrapper'
+import Typewriter from '../../components/Typewriter/Typewriter'
 
 function Home() {
   const { data: company, isLoading: companyLoading } = useQuery({
@@ -17,6 +18,14 @@ function Home() {
   })
 
   const { days, hours, minutes, seconds } = useCountdown('2026-12-01T00:00:00.000Z')
+
+  const summary = company?.summary ?? ''
+  const line1 = company ? `Founded: ${company.founded} by ${company.founder}` : ''
+  const line2 = company ? `Employees: ${company.employees.toLocaleString()}` : ''
+
+  const speed = 50
+  const summaryDuration = summary.length * speed
+  const line1Duration = line1.length * speed
 
   return (
     <div className={styles.container}>
@@ -46,9 +55,15 @@ function Home() {
         {company && (
           <section className={styles.about}>
             <h2>About SpaceX</h2>
-            <p>{company.summary}</p>
-            <p>Founded: {company.founded} by {company.founder}</p>
-            <p>Employees: {company.employees.toLocaleString()}</p>
+            <p>
+              <Typewriter text={summary} speed={speed} />
+            </p>
+            <p>
+              <Typewriter text={line1} speed={speed} delay={summaryDuration} />
+            </p>
+            <p>
+              <Typewriter text={line2} speed={speed} delay={summaryDuration + line1Duration} />
+            </p>
           </section>
         )}
       </QueryWrapper>
