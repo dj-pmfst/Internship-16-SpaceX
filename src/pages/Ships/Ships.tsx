@@ -4,6 +4,8 @@ import useDebounce from '../../hooks/useDebounce'
 import useInfiniteShips from '../../hooks/useInfiniteShips'
 import styles from './Ships.module.css'
 import useIntersectionObserver from '../../hooks/useIntersectionObserver'
+import ShipCard from '../../components/ShipCard/ShipCard'
+
 
 export default function Ships() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -49,23 +51,13 @@ export default function Ships() {
       {isLoading && <div className={styles.spinner} />}
       {isError && <p>Failed to load ships.</p>}
 
-      <div className={styles.grid}>
-        {allShips.map(ship => (
-          <div
+      {allShips.map(ship => (
+          <ShipCard
             key={ship.id}
-            className={styles.card}
+            ship={ship}
             onClick={() => navigate(`/ships/${ship.id}`)}
-          >
-            {ship.image
-              ? <img src={ship.image} alt={ship.name} />
-              : <div className={styles.noImage}>No Image</div>
-            }
-            <h3>{ship.name}</h3>
-            <p>{ship.type}</p>
-            <span>{ship.active ? 'Active' : 'Inactive'}</span>
-          </div>
+          />
         ))}
-      </div>
 
       {isFetchingNextPage && <div className={styles.spinner} />}
       {!hasNextPage && !isLoading && <p>No more ships to load.</p>}
