@@ -2,6 +2,7 @@
 @import './variables.css';
 @import './themes.css';
 @import './scrollbar.css';
+@import './links.css';
 
 * {
   box-sizing: border-box;
@@ -15,11 +16,6 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-header);
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
 }
 
 button {

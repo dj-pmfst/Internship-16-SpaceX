@@ -29,7 +29,7 @@ export function Layout({ children }: Props) {
       </video>
 
       <header className={styles.header}>
-        <img src="/src/assets/icons/SpaceX-Logo.svg" />
+        <img src="/src/assets/icons/SpaceX-Logo.svg" className={styles.logo} />
         <nav>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/launches">Launches</NavLink>

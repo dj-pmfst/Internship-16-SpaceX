@@ -14,21 +14,23 @@ function LaunchDetail() {
     <QueryWrapper isLoading={isLoading} isError={isError} errorMessage="Failed to load launch details.">
       {launch && (
       <div className={styles.container}>
-        <button onClick={() => navigate(-1)}>← Back</button>
         <div className={styles.launch}>
           {launch.links.patch.large && (
             <img src={launch.links.patch.large} alt={launch.name} className={styles.patch} />
           )}
           <h1>{launch.name}</h1>
         </div>
-
-        <p>Date: {new Date(launch.date_utc).toLocaleDateString()}</p>
-        <p>Rocket: {rocket?.name ?? 'Unknown'}</p>
-        <p>
-          Status:{' '}
-          {launch.upcoming ? 'Upcoming' : launch.success ? 'Success' : 'Failed'}
-        </p>
-        {launch.details && <p>{launch.details}</p>}
+        
+        <div className={styles.description}>
+          <p>Date: {new Date(launch.date_utc).toLocaleDateString()}</p>
+          <p>Rocket: {rocket?.name ?? 'Unknown'}</p>
+          <p>
+            Status:{' '}
+            {launch.upcoming ? 'Upcoming' : launch.success ? 'Success' : 'Failed'}
+          </p>   
+          {launch.details && <p>{launch.details}</p>}       
+        </div>
+        
         {launch.failures.length > 0 && (
           <div className={styles.failures}>
             <h2>Failure Details</h2>
@@ -43,9 +45,10 @@ function LaunchDetail() {
         )}
         {launch.links.webcast && (
           <a href={launch.links.webcast} target="_blank" rel="noreferrer">
-            <img src='/src/assets/icons/youtube.svg'/> <span>Watch on YouTube </span>
+            Watch on YouTube 
           </a>
         )}
+        <button onClick={() => navigate(-1)}>← Back</button>
       </div>
       )}
     </QueryWrapper>

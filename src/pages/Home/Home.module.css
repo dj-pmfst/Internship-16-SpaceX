@@ -14,6 +14,10 @@
     padding-bottom: 0;
 }
 
+.heroContent h1{
+    text-align: left;
+}
+
 h2 span {
     display: block;
     text-align: right;
@@ -43,10 +47,10 @@ h2 span:last-child{
     padding-top: 3rem;
 }
 
-.about h2{
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+.about p{
+    text-align: center;
 }
 
-p{
-    text-align: center;
+.about h2{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
