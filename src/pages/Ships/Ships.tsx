@@ -8,7 +8,6 @@ import ShipCard from '../../components/ShipCard/ShipCard'
 import withErrorBoundary from '../../hoc/withErrorBoundary'
 import QueryWrapper from '../../components/QueryWrapper/QueryWrapper'
 
-
 function Ships() {
   const [searchParams, setSearchParams] = useSearchParams()
   const navigate = useNavigate()

@@ -2,12 +2,20 @@ import { useQuery } from '@tanstack/react-query'
 import { getLaunchById, getRocketById } from '../api'
 
 const useLaunchDetail = (id: string) => {
-  const { data: launch, isLoading: launchLoading, isError } = useQuery({
+  const {
+    data: launch,
+    isLoading: launchLoading,
+    isError: launchError,
+  } = useQuery({
     queryKey: ['launch', id],
     queryFn: () => getLaunchById(id),
   })
 
-  const { data: rocket, isLoading: rocketLoading } = useQuery({
+  const {
+    data: rocket,
+    isLoading: rocketLoading,
+    isError: rocketError,
+  } = useQuery({
     queryKey: ['rocket', launch?.rocket],
     queryFn: () => getRocketById(launch!.rocket),
     enabled: !!launch?.rocket,
@@ -17,7 +25,7 @@ const useLaunchDetail = (id: string) => {
     launch,
     rocket,
     isLoading: launchLoading || rocketLoading,
-    isError,
+    isError: launchError || rocketError,
   }
 }
 

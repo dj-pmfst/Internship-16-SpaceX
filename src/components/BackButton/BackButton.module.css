@@ -1,0 +1,18 @@
+.back {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 8px 24px;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    display: inline-block;
+}
+
+.back:hover {
+    background: var(--text-primary);
+    color: var(--card-bg);
+}

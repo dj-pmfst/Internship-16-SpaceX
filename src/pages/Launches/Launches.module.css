@@ -89,82 +89,6 @@
     background: var(--border);
 }
 
-.card {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    padding: 28px 32px;
-    background: var(--card-bg);
-    cursor: pointer;
-    transition: background 0.2s;
-    backdrop-filter: blur(10px);
-}
-
-.card:hover {
-    background: var(--hover-bg);
-}
-
-.patch {
-    width: 64px;
-    height: 64px;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-.patchPlaceholder {
-    width: 64px;
-    height: 64px;
-    background: var(--hover-bg);
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-.cardInfo {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.cardName {
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-primary);
-}
-
-.cardDate {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    letter-spacing: 0.1em;
-}
-
-.cardStatus {
-    margin-left: auto;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border: 1px solid;
-    flex-shrink: 0;
-}
-
-.success {
-    color: #4caf50;
-    border-color: #4caf50;
-}
-
-.failed {
-    color: #f44336;
-    border-color: #f44336;
-}
-
-.upcoming {
-    color: var(--text-secondary);
-    border-color: var(--border);
-}
-
 .pagination {
     display: flex;
     align-items: center;
@@ -235,28 +159,6 @@
 @media (max-width: 768px) {
     .container {
       padding: 100px 20px 40px;
-    }
-  
-    .card {
-      padding: 20px;
-      gap: 16px;
-    }
-  
-    .patch {
-      width: 48px;
-      height: 48px;
-    }
-  
-    .cardName {
-      font-size: 0.9rem;
-    }
-  
-    .pagination {
-      gap: 12px;
-    }
-  
-    .pageButton {
-      padding: 8px 16px;
     }
 }
 

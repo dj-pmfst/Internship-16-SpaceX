@@ -8,21 +8,6 @@
     align-items: center;
     gap: 4rem;
 }
-  
-.back {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text-primary);
-    padding: 8px 24px;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: inherit;
-    margin-bottom: 48px;
-    display: inline-block;
-}
 
 .topContainer{
     display: flex;
@@ -43,11 +28,6 @@
     flex-direction: column;
     text-align: right;
     gap: 1rem;
-}
-  
-.back:hover {
-    background: var(--text-primary);
-    color: var(--card-bg);
 }
   
 .header {
@@ -83,6 +63,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    align-items: flex-end;
 }
   
 .title {
@@ -99,6 +80,8 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     padding: 4px 12px;
+    color: #4caf50;
+    border:1px solid #4caf50;
 }
   
 .inactiveStatus {

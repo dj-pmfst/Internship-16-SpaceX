@@ -1,0 +1,22 @@
+.themeToggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.themeToggle:hover {
+    background: var(--hover-bg);
+}
+
+.themeIcon {
+    width: 20px;
+    height: 20px;
+    display: block;
+    filter: var(--icon-filter);
+    transition: filter 0.3s;
+}
