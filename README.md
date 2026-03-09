@@ -41,7 +41,7 @@ Homewrok 16 - React based SpaceX website
 
 1. Clone the repository
    ```
-   git clone https://github.com/dj-pmfst/spacex-mission-control.git
+   git clone https://github.com/dj-pmfst/Internship-16-SpaceX.git
    cd spacex-mission-control
    ```
 
